@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcularor</title>
+    
+</head>
+<body>
+    <div class="all">
+        <div class="notice">this calculator works only with 2 nums</div>
+        <div class="container">
+            <div class="result" id="result">0</div>
+            <div class="buttons">
+                <table class="operations" height="50px">
+                    <tr>
+                        <th class="operationStyle"><button class="OperationsButtons" id="C">C</button></th>
+                        <th class="operationStyle"><button class="OperationsButtons" id="delete"><-</button></th>
+                        <th class="operationStyle"><button class="OperationsButtons" id="off">off</button></th>
+                        <th class="operationStyle"><button class="OperationsButtons" onclick="fun('/')" id="/">/</button></th>
+                    </tr>
+                </table>
+            <div class="numsy">
+
+            <table class="numbers">
+                <tr>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('7')" id="7">7</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('8')" id="8">8</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('9')"  id="9">9</button></th>
+                </tr>
+                <tr>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('4')" id="4">4</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('5')" id="5">5</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('6')" id="6">6</button></th>
+                </tr>
+                <tr>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('1')" id="1">1</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('2')" id="2">2</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('3')" id="3">3</button></th>
+                </tr>
+                <tr>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('.')" id=".">.</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('0')" id="0">0</button></th>
+                    <th class="casButton"><button class="NumberButtons" onclick="fun('00')" id="00">00</button></th>
+                </tr>
+            </table>
+            <table class="symbols">
+                <tr><th class="operationStyle"><button class="SymbolsButtons" onclick="fun('*')" id="*">*</button></th></tr>
+                <tr><th class="operationStyle"><button class="SymbolsButtons" onclick="fun('+')" id="+">+</button></th></tr>
+                <tr><th class="operationStyle"><button class="SymbolsButtons" onclick="fun('-')" id="-">-</button></th></tr>
+                <tr><th class="operationStyle"><button class="SymbolsButtons" onclick="fun('=')" id="=">=</button></th></tr>
+
+            </table>
+
+            </div>    
+
+            </div>
+        </div>
+        
+
+    </div>
+    
+    <script>
+let num1 = '';
+let res = 0;
+let b = "8+8";
+
+b = eval(b);
+console.log(b)
+
+
+//GetNumbers
+
+function fun(number){
+    num1 = num1 + number;
+    document.getElementById("result").innerHTML = num1;
+    console.log(num1)
+}
+
+
+document.getElementById("delete").onclick = function(){
+    let num1lenth = num1.length;
+    num1=num1.substring(0,num1lenth-1);
+    document.getElementById("result").innerHTML = num1;
+
+}
+
+
+
+//Calculating the result
+document.getElementById("=").onclick = function(){
+    num1 = eval(num1);
+    document.getElementById("result").innerHTML = num1;
+    num1 = num1.toString();
+}
+
+//RerfeshAndExit
+document.getElementById("C").onclick = function(){
+    location.reload();
+}
+
+document.getElementById("off").onclick = function(){
+    window.close();
+}
+    </script>
+</body>
+<style>
+    *{
+        font-family: sans-serif;
+    }
+    body{
+        background-image: linear-gradient(to left ,red , blue);
+        background-image: url("https://d33wubrfki0l68.cloudfront.net/0a619155c82b694e2267f3ed5c752919b707e33b/ef36f/static/svg_waves-3c1f0a785319462f6dce04d227eaf664.jpg");
+    }
+    
+    .all{
+        height: 90vh;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .container{
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-style: solid;
+        border-color: white;
+        padding: 9px;
+        width: 250px;
+        height: 57vh;
+        border-radius: 15px;
+        box-shadow: 5px 10px 8px #00000094;
+    }
+    .result{
+        height: 80px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        padding: 12px;
+        background-color: white;
+        padding: 4px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        font-size: 30px;
+        font-weight: bolder;
+        color: white;
+    
+    }
+    .operations{
+        
+        width: 100%;
+    }
+    .OperationsButtons{
+        background-color: blue;
+        width: 100%;
+        height: 7vh;
+        background-color:transparent;
+        border: none;
+        color: white;
+    }
+    .OperationsButtons:active{
+        background-color: rgba(17, 16, 16, 0.452);
+        backdrop-filter: blur(10px);
+    
+    }
+    .SymbolsButtons{
+        background-color: blue;
+        width: 100%;
+        height: 7vh;
+        background-color:transparent;
+        border: none;
+        color: white;
+        
+    }
+    .SymbolsButtons:active{
+        background-color: rgba(17, 16, 16, 0.452);
+        backdrop-filter: blur(10px);
+    
+    }
+    .operationStyle{
+        background-color: rgba(17, 16, 16, 0.452);
+        backdrop-filter: blur(10px);
+    }
+    .casButton{
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+        margin: 0;
+        height: 7vh;
+    
+    
+    }
+    .NumberButtons{
+        height: 100%;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        
+    
+    }
+    .NumberButtons:active{
+        background-color: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+        
+    
+    }
+    th{
+        width: 57px;
+    }
+    .numbers{
+        width: 75%;
+        height: 27vh;
+        
+    }
+    .symbols{
+        width: 25%;
+        
+    }
+    .numsy {
+        display: flex;
+    }
+    .notice{
+        margin: 2%;
+        color: beige;
+        font-size: larger;
+        font-weight: bolder;
+    }
+</style>
+
+</html>
